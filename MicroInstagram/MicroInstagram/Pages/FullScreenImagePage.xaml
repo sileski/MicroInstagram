@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MicroInstagram.Pages.FullScreenImagePage">
+
+
+    <NavigationPage.TitleView>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="1"
+               Margin="20,0,0,0"
+               Text="Image"
+               FontSize="Large"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"
+               TextColor="White" />
+            <Button Grid.Column="2"
+               FontSize="Large"
+               BackgroundColor="Transparent"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"/>
+        </Grid>
+    </NavigationPage.TitleView>
+
+    <ContentPage.Content>
+        <Image Source="{Binding Image.Url}" Aspect="AspectFill"></Image>
+    </ContentPage.Content>
+    
+</ContentPage>

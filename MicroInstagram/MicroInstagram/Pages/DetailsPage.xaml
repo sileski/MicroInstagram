@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:tool="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="MicroInstagram.Pages.DetailsPage">
+
+    <NavigationPage.TitleView>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="1"
+               Margin="20,0,0,0"
+               Text="Details"
+               FontSize="Large"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"
+               TextColor="White" />
+            <Button Grid.Column="2" 
+                    Command="{Binding SaveChangesCommand}"
+                    Text="Save"
+                    TextColor="White"
+                    BackgroundColor="Transparent"
+                    VerticalOptions="Center"    
+                    HorizontalOptions="Center"/>
+        </Grid>
+    </NavigationPage.TitleView>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Image Source="{Binding Image.Url}" Aspect="AspectFill" HeightRequest="300">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding OpenFullImageCommand}"/>
+                </Image.GestureRecognizers>
+            </Image>
+            <Entry Text="{Binding Image.Title}" Margin="15, 5"/>
+            <Button BackgroundColor="Red" TextColor="White" Text="Delete" Margin="10, 10" Command="{Binding DeleteImageCommand}"/>
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:tool="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="MicroInstagram.Pages.AddNewImagePage">
+
+    <NavigationPage.TitleView>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="1"
+               Margin="20,0,0,0"
+               Text="New Image"
+               FontSize="Large"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"
+               TextColor="White" />
+            <Button Grid.Column="2" 
+                    BackgroundColor="Transparent"
+                    VerticalOptions="Center"    
+                    HorizontalOptions="Center"/>
+        </Grid>
+    </NavigationPage.TitleView>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BorderColor="Black" Padding="0" Margin="15, 10" BackgroundColor="WhiteSmoke" CornerRadius="10">
+                <Entry Text="{Binding Title}" Placeholder="Enter Title..." Margin="15,0">
+                    <Entry.Effects>
+                        <tool:RemoveBorderEffect/>
+                    </Entry.Effects>
+                </Entry>
+            </Frame>
+            <Image x:Name="Slika"  Aspect="AspectFill" Source="{Binding SelectedImage}" HeightRequest="300" BackgroundColor="LightGray"/>
+
+            <Grid ColumnDefinitions="1*, 1*" RowDefinitions="1*, Auto" Margin="10, 20">
+                <Button Grid.Row="0" Grid.Column="0" BackgroundColor="Gray" Text="Select Image"
+                        TextColor="White" Margin="5, 0" 
+                        Command="{Binding SelectImageCommand}" CornerRadius="10"/>
+                <Button Grid.Row="0" Grid.Column="1"  BackgroundColor="ForestGreen" TextColor="White" 
+                        Text="Save" Margin="5, 0" CornerRadius="10"
+                        Command="{Binding SaveImageCommand}"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+    
+</ContentPage>
